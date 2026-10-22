@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demiana Danyal | Data Analyst & Designer Portfolio</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #1e40af;
+            --bg-color: #f8fafc;
+            --card-bg: #ffffff;
+            --text-color: #0f172a;
+            --text-muted: #64748b;
+            --border-color: #e2e8f0;
+            --skill-bg: #f1f5f9;
+        }
+
+        .dark {
+            --primary-color: #3b82f6;
+            --secondary-color: #60a5fa;
+            --bg-color: #0f172a;
+            --card-bg: #1e293b;
+            --text-color: #f8fafc;
+            --text-muted: #94a3b8;
+            --border-color: #334155;
+            --skill-bg: #1e293b;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', 'Cairo', sans-serif;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        header {
+            background: linear-gradient(135deg, #0f172a, #1e40af);
+            color: white;
+            padding: 4rem 2rem 5rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .theme-toggle {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: white;
+            padding: 0.6rem 1rem;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            backdrop-filter: blur(5px);
+            transition: background 0.3s;
+        }
+
+        .theme-toggle:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .profile-container {
+            margin-bottom: 1.5rem;
+        }
+
+        .profile-img {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid white;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            color: #93c5fd;
+            margin-bottom: 1.5rem;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-top: 1.5rem;
+        }
+
+        .social-btn {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            padding: 0.6rem 1.2rem;
+            border-radius: 30px;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(5px);
+            font-size: 0.95rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .social-btn:hover {
+            background: var(--primary-color);
+            transform: translateY(-3px);
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: -2rem auto 3rem;
+            padding: 0 1.5rem;
+            position: relative;
+            z-index: 10;
+        }
+
+        section {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            border: 1px solid var(--border-color);
+        }
+
+        section h2 {
+            font-size: 1.8rem;
+            color: var(--secondary-color);
+            margin-bottom: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 0.5rem;
+        }
+
+        .about-text {
+            font-size: 1.1rem;
+            color: var(--text-color);
+            line-height: 1.8;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .skill-item {
+            background: var(--skill-bg);
+            padding: 1rem;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: 600;
+            color: var(--text-color);
+            border-left: 4px solid var(--primary-color);
+            border: 1px solid var(--border-color);
+        }
+
+        .project-card {
+            background: var(--bg-color);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .project-card h3 {
+            color: var(--secondary-color);
+            margin-bottom: 0.5rem;
+            font-size: 1.3rem;
+        }
+
+        .project-card p {
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+        }
+
+        .project-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .project-link:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            border-top: 1px solid var(--border-color);
+            background: var(--card-bg);
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()">
+            <i class="fas fa-moon" id="themeIcon"></i> <span id="themeText">Dark Mode</span>
+        </button>
+
+        <div class="profile-container">
+            <img src="photo.jpeg" alt="Demiana Danyal" class="profile-img" onerror="this.src='https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400'">
+        </div>
+        <h1>Demiana Danyal Adly Masaod</h1>
+        <p>Data Analyst & Dashboard Designer</p>
+        
+        <div class="social-links">
+            <a href="https://www.linkedin.com/in/demiana-danyal" target="_blank" class="social-btn"><i class="fab fa-linkedin"></i> LinkedIn</a>
+            <a href="https://github.com/demianadanyal" target="_blank" class="social-btn"><i class="fab fa-github"></i> GitHub</a>
+            <a href="https://khamsat.com/" target="_blank" class="social-btn"><i class="fas fa-store"></i> Khamsat</a>
+            <a href="https://mostaql.com/" target="_blank" class="social-btn"><i class="fas fa-briefcase"></i> Mostaql</a>
+            <a href="https://nafezly.com/" target="_blank" class="social-btn"><i class="fas fa-laptop-code"></i> Nafezly</a>
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- About Me Section -->
+        <section>
+            <h2><i class="fas fa-user-circle"></i> About Me</h2>
+            <p class="about-text">
+                Dedicated Data Analyst and Computer Science student with a strong foundation in transforming raw data into actionable insights using Python, SQL, and Power BI. Experienced in developing end-to-end analytical dashboards, predictive models, and intuitive data visualizations that drive strategic decision-making. Adept at combining rigorous data analysis with strong UI design principles to present complex metrics in clear, engaging, and user-centric formats.
+            </p>
+        </section>
+
+        <!-- Technical Skills -->
+        <section>
+            <h2><i class="fas fa-tools"></i> Core Skills & Expertise</h2>
+            <div class="skills-grid">
+                <div class="skill-item">Data Analysis & Cleaning</div>
+                <div class="skill-item">Power BI Dashboards</div>
+                <div class="skill-item">SQL (SSMS) & Advanced Excel</div>
+                <div class="skill-item">Python & Machine Learning</div>
+                <div class="skill-item">Data & UI Design</div>
+                <div class="skill-item">Streamlit Applications</div>
+            </div>
+        </section>
+
+        <!-- Featured Projects (Data Analysis Only) -->
+        <section>
+            <h2><i class="fas fa-project-diagram"></i> Data Analysis Projects</h2>
+            
+            <div class="project-card">
+                <h3>Hotel Booking Cancellation Prediction & Management System</h3>
+                <p>Advanced Data Analysis Track Graduation Project (NTI): Developed an end-to-end machine learning solution combining data analysis, a Streamlit web interface, and an interactive Telegram bot to predict hotel booking cancellations.</p>
+                <a href="https://github.com/demianadanyal/Hotel-booking-cancellation-predicting" target="_blank" class="project-link"><i class="fab fa-github"></i> View Project on GitHub <i class="fas fa-arrow-right"></i></a>
+            </div>
+
+            <div class="project-card">
+                <h3>House Price Prediction Project</h3>
+                <p>AI and Machine Learning Track Graduation Project (ITI): Implemented machine learning models and data preprocessing pipelines to predict house prices accurately based on historical datasets.</p>
+                <a href="https://github.com/demianadanyal/house-project" target="_blank" class="project-link"><i class="fab fa-github"></i> View Project on GitHub <i class="fas fa-arrow-right"></i></a>
+            </div>
+
+            <div class="project-card">
+                <h3>Data Analysis Portfolio (HR, Games, & Company Datasets)</h3>
+                <p>Applied data cleaning, preprocessing, and transformation pipelines using Excel and SQL, and built interactive Power BI dashboards to track operational, financial, and sales metrics with high design precision.</p>
+                <a href="https://github.com/demianadanyal" target="_blank" class="project-link"><i class="fab fa-github"></i> View Portfolio Repository <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </section>
+
+        <!-- Training & Education -->
+        <section>
+            <h2><i class="fas fa-graduation-cap"></i> Training & Education</h2>
+            <div class="project-card">
+                <h3>Advanced Data Analytics Trainee – NTI</h3>
+                <p>Completed 120 hours of advanced data analytics training with a score of 95% (Technical & Freelancing Hours).</p>
+            </div>
+            <div class="project-card">
+                <h3>Data Analysis Trainee – ITI (Information Technology Institute)</h3>
+                <p>Cleaned and transformed raw datasets using Excel and SQL, created interactive business intelligence dashboards using Power BI, and wrote optimized SQL queries within SQL Server Management Studio (SSMS).</p>
+            </div>
+            <div class="project-card">
+                <h3>Bachelor of Science in Computer Science & Mathematics</h3>
+                <p>Suez University, Egypt (Expected Graduation: 2028).</p>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Demiana Danyal. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        function toggleTheme() {
+            const html = document.documentElement;
+            const themeIcon = document.getElementById('themeIcon');
+            const themeText = document.getElementById('themeText');
+            
+            if (html.classList.contains('dark')) {
+                html.classList.remove('dark');
+                themeIcon.className = 'fas fa-sun';
+                themeText.innerText = 'Light Mode';
+            } else {
+                html.classList.add('dark');
+                themeIcon.className = 'fas fa-moon';
+                themeText.innerText = 'Dark Mode';
+            }
+        }
+    </script>
+</body>
+</html>
